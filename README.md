@@ -1,2 +1,2 @@
 # Airtribe-submissions
-Airtribe submissions
+Airtribe submissions.
