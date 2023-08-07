@@ -1,3 +1,4 @@
+const { log } = require('console');
 const fs = require ('fs');
 const path = require ('path');
 const tasksPath = path.join(__dirname, '../data/tasks.json');
@@ -20,27 +21,32 @@ function writeTasks(tasks){
     }
 }
 
-const tasksController = {
-    getAllTasks : (req, res) =>{
-        try {
-            const tasks = readTasks();
-            res.JSON(tasks);
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    createTask : async (req, res)=>{
-        try {
-            const tasks = await readTasks();
-            const newTask = req.body;
-            tasks.push(newTask);
-            await writeTasks(tasks);
-        } catch (error) {
-            throw new Error(error);
-        }
+function getAllTasks(req, res) {
+    console.log(req);
+    try {
+        const tasks = readTasks();
+        console.log("inside get all tasks");
+        res.JSON(tasks);
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+
+async function createTask (req, res){
+    try {
+        const tasks = await readTasks();
+        const newTask = req.body;
+        tasks.push(newTask);
+        await writeTasks(tasks);
+    } catch (error) {
+        throw new Error(error);
     }
 }
 
 module.exports = {
-   tasksController
+    readTasks,
+    writeTasks,
+    getAllTasks,
+   createTask
 }
