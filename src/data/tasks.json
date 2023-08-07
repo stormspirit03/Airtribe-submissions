@@ -1,4 +1,40 @@
-{ 
-    "tasksArray" :[]
-
+{
+  "tasksArray": [
+    {
+      "id": 1,
+      "title": "assignment-1",
+      "description": "task 1",
+      "priority": 1,
+      "isCompleted": true,
+      "createdAt": "2023-07-29T10:46:28.313Z",
+      "updatedAt": "2023-07-29T10:46:28.313Z"
+    },
+    {
+      "id": 2,
+      "title": "assignment-2",
+      "description": "task 2",
+      "priority": 1,
+      "isCompleted": false,
+      "createdAt": "2023-07-29T10:46:28.313Z",
+      "updatedAt": "2023-07-29T10:46:28.313Z"
+    },
+    {
+      "id": 2,
+      "title": "assignment-2",
+      "description": "task 2",
+      "priority": 1,
+      "isCompleted": false,
+      "createdAt": "2023-07-29T10:46:28.313Z",
+      "updatedAt": "2023-07-29T10:46:28.313Z"
+    },
+    {
+      "id": 4,
+      "title": "assignment-2",
+      "description": "task 2",
+      "priority": 1,
+      "isCompleted": false,
+      "createdAt": "2023-07-29T10:46:28.313Z",
+      "updatedAt": "2023-07-29T10:46:28.313Z"
+    }
+  ]
 }

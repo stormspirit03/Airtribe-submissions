@@ -16,17 +16,18 @@ function readTasks(){
 function writeTasks(tasks){
     try {
         fs.writeFileSync(tasksPath,JSON.stringify(tasks, null, 2),'utf-8');
+        console.log("created tasks successfully..");
     } catch (error) {
         throw new Error(error);
     }
 }
 
-function getAllTasks(req, res) {
+async function getAllTasks(req, res) {
     console.log(req);
     try {
-        const tasks = readTasks();
+        const tasks = await readTasks();
         console.log("inside get all tasks");
-        res.JSON(tasks);
+        res.json(tasks.tasksArray);
     } catch (error) {
         throw new Error(error);
     }
@@ -37,7 +38,7 @@ async function createTask (req, res){
     try {
         const tasks = await readTasks();
         const newTask = req.body;
-        tasks.push(newTask);
+        tasks.tasksArray.push(newTask);
         await writeTasks(tasks);
     } catch (error) {
         throw new Error(error);
