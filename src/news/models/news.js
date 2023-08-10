@@ -1,5 +1,6 @@
 
 const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
   id: String, // Optional field
@@ -24,6 +25,7 @@ const userSchema = new mongoose.Schema({
   updatedAt: String, // Change this to Date if updatedAt is meant to be a timestamp
 });
 
-module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
+export default User;
 
 
