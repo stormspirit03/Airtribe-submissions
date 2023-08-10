@@ -1,27 +1,55 @@
 
 import mongoose from 'mongoose';
 
+
+/** consists:
+ * fullName,
+ * email,
+ * password,
+ * preferences,
+ * created,
+ * updated
+ * */ 
 const userSchema = new mongoose.Schema({
-  id: String, // Optional field
-  email: {
+  fullName: {
     type: String,
-    required: true,
-    unique: true,
-  },
-  name: {
+    required: [true, 'Name is required'] 
+   },
+   email: {
     type: String,
-    required: true,
-  },
-  password: {
+    unique: [true, 'Account with this email already exists, try login.'],
+    lowercase: true,
+    trim: true,
+    required: [true, 'Email is required.'],
+    validate: {
+        validator: function (v) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+        },
+        message: 'Invalid email address.'
+    }
+   },
+   password: {
     type: String,
-    required: true,
-  },
-  createdAt: {
+    required: [true, "Password not required"]
+   },
+   preferences: {
+    category: {
+        type: [String],
+        required: [true, "Atleast one preference is needed."]
+    },
+    sources: {
+        type: [String],
+        required: [true, "Atleast one sources is needed."]
+    }
+   },
+   created: {
     type: Date,
-    required: true,
-    default: Date.now,
-  },
-  updatedAt: String, // Change this to Date if updatedAt is meant to be a timestamp
+    default: Date.now
+   },
+   updated: {
+    type: Date,
+    default: Date.now
+   }
 });
 
 module.exports = mongoose.model('User', userSchema);
