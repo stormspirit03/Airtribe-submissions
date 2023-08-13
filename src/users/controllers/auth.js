@@ -49,6 +49,7 @@ const userLogin = async (req, res) => {
         }, process.env.API_SECRET, {
             expiresIn: 999999
         });
+        console.log(`token , ${token}`);
         let returnObject = {
             user: {
                 user: user._id,

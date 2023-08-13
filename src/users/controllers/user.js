@@ -5,7 +5,8 @@ async function updateUserPreferences(req,res){
     try {
         const {preferences} = req.body;
         await User.findByIdAndUpdate( req.user._id,{
-            preferences
+            preferences,
+            updated: Date.now(),
         });
         res.status(200).send('Preferences updated.');
     } catch (error) {
@@ -17,6 +18,7 @@ async function updateUserPreferences(req,res){
 
 async function getUserPreferences(req,res){
     try {
+        console.log('inside getUserPreferences ');
         const user = await User.findOne( {email: req.user.email });
         res.status(201).send(user.preferences);
     } catch (error) {
