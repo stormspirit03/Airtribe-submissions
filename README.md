@@ -19,6 +19,7 @@ This project is a Node.js application that fetches and formats news articles usi
    cd nodejs-news-api
 
 ## File Structure
+```
 nodejs-news-api/
 ├── src/
 │   ├── middleware/
@@ -42,6 +43,7 @@ nodejs-news-api/
 ├── .gitignore
 ├── package.json
 └── README.md
+```
 
 ## Environment Variables
 
