@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const userRoutes = require('./src/users/routes/index');
+const newsRoutes = require('./src/news/routes/index')
 
 // const authController = require("./src/users/controllers/auth.js");
 // const User = require("./src/users/models/user.js");
@@ -27,7 +28,7 @@ router.get("/",(req,res)=>{
   res.send("welcome to news Api");
 });
 app.use('/user', userRoutes.router);
-
+app.use('/news', newsRoutes.news );
 // router.post('/register', authController.userRegister);
 // router.post('/login', authController.userLogin);
 

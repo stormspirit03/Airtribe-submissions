@@ -28,6 +28,7 @@
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.2",
     "path": "^0.12.7",
-    "stream": "0.0.2"
+    "stream": "0.0.2",
+    "url-search-params": "^1.1.0"
   }
 }
